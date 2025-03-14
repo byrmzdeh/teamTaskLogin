@@ -1,0 +1,21 @@
+@font-face {
+    font-family: 'Instrument Sans';
+    src: url('/path-to-font/Instrument-Sans.woff2') format('woff2'),
+        url('/path-to-font/Instrument-Sans.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Instrument Sans', sans-serif;
+}
