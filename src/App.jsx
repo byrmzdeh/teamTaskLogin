@@ -1,9 +1,9 @@
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from './companents/Login'
+import Login from './components/Login'
 import Links from './pages/Links'
 import './assets/scss/style.scss'
-import Account from "./companents/Account";
+import Account from "./components/Account";
 
 const App = () => {
   return (
