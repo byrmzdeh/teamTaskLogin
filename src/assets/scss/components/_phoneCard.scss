@@ -1,0 +1,87 @@
+.phoneCard-wrapper {
+  width: 560px;
+  height: 834px;
+  background-color: $white-color;
+  border-radius: 12px;
+  .phone-image-wrapper {
+    position: relative;
+    width: 285px;
+    height: 611px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .phone-info {
+      position: absolute;
+      top: 53px;
+      bottom: 43.5px;
+      gap: 56px;
+      width: 100%;
+      .user {
+        gap: 25px;
+        .profile-photo {
+          width: 96px;
+          height: 96px;
+          border-radius: 50%;
+          background-color:$light-grey;
+          cursor: pointer;
+          img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid $border-color;
+            visibility: hidden;
+          }
+        }
+
+        .user-info {
+          gap: 13px;
+
+          .profile-name {
+            width: 160px;
+            height: 16px;
+            border-radius: 104px;
+            background-color: $light-grey;
+            cursor: pointer;
+          }
+
+          .profile-email {
+            width: 72px;
+            height: 8px;
+            border-radius: 104px;
+            background-color: $light-grey;
+            cursor: pointer;
+          }
+        }
+      }
+
+      .profile-links {
+        width: 100%;
+        flex: 1;
+        overflow-y: auto;
+        height: 300px;
+        ::-webkit-scrollbar {
+          width: 0px;
+        }
+        scrollbar-width: none;
+        ul {
+          gap: 20px;
+          width: 100%;
+          padding: 0 10px;
+          box-sizing: border-box;
+          height: 100%;
+          li {
+            background-color: $light-grey;
+            border-radius: 8px;
+            width: 237px;
+            height: 44px;
+            cursor: pointer;
+            flex-shrink: 0;
+          }
+        }
+      }
+    }
+  }
+}

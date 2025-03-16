@@ -1,8 +1,15 @@
 @import url(./_reset.scss);
 @import "./base";
+@import "./variable";
 
 
 //komponetler
 @import url(./components/_login.scss);
 @import "./components/header";
+@import "./components/phoneCard";
+@import "./components/customizeLinks";
+
+
+//pages
+@import "./pages/links";
 

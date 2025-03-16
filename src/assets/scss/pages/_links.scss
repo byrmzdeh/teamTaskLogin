@@ -1,0 +1,10 @@
+main{
+    .links-section{
+        background-color: $primary-color;
+        .links-section-wrapper{
+            padding: $padding;
+            display: flex;
+            gap: 24px;
+        }
+    }
+}
