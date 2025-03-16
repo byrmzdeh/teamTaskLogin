@@ -1,5 +1,5 @@
-import React from 'react';
-import frame from "../assets/image/Group 273.png"
+
+import MyCustomSelect from './MyCustomSelect';
 
 const CustomizeLinks = () => {
   return (
@@ -13,7 +13,9 @@ const CustomizeLinks = () => {
           </div>
           <div className="customize-links-body">
             <button>+ Add new link</button>
-            <div className="link-setup-area">
+           
+          <div className="links">
+          {/* <div className="start-helper-area">
               <div className='start-helper f-column'>
                 <img src={frame} alt="links" />
                 <div className="helper-text f-column">
@@ -21,7 +23,13 @@ const CustomizeLinks = () => {
                   <p>Use the “Add new link” button to get started. Once you have more than one link, you can reorder and edit them. We’re here to help you share your profiles with everyone!</p>
                 </div>
               </div>
-            </div>
+            </div> */}
+            <ul className='links-area-list'>
+              <li className='link-item'>
+                <MyCustomSelect/>
+              </li>
+            </ul>
+          </div>
           </div>
         </div>
       </div>
