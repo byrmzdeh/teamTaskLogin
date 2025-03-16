@@ -1,4 +1,112 @@
-.customize{
-    width: 808px;
-    background-color: #fff;
+.customize-links-wrappers {
+  width: 808px;
+  background-color: $white-color;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  .customize-container {
+    border-bottom: 2px solid $light-grey;
+    .customize {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      padding: 40px;
+      .customize-head {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        h2 {
+          font-weight: 700;
+          font-size: 32px;
+          line-height: 150%;
+          letter-spacing: 0%;
+          color: $dark-grey;
+        }
+        p {
+          color: $grey;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 150%;
+          letter-spacing: 0%;
+        }
+      }
+      .customize-links-body {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        button {
+          width: 100%;
+          height: 46px;
+          border-radius: 8px;
+          border: 1px solid $border-color;
+          background-color: $white-color;
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 150%;
+          letter-spacing: 0%;
+          color: $border-color;
+          cursor: pointer;
+        }
+    
+        .link-setup-area{
+          width:100%;
+          background-color: $primary-color;
+          height: 469px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .start-helper{
+           height: 344px;
+           justify-content: center;
+           gap: 40px;
+        
+            img{
+              width: 249.53px;
+              height: 160px;
+            }
+            .helper-text{
+              gap: 24px;
+              width: 488px;
+              h3{
+                font-weight: 700;
+                font-size: 32px;
+                line-height: 150%;
+                letter-spacing: 0%;
+                text-align: center;
+                color: $dark-grey;
+              }
+              p{
+                text-align: center;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 150%;
+                letter-spacing: 0%;
+                color: #888888;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .save {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 0 40px;
+
+    .save-btn {
+      width: 91px;
+      height: 46px;
+      padding: 11px 27px;
+      border-radius: 8px;
+      background-color: $border-color;
+      opacity: 25%;
+      border: none;
+      outline: none;
+      color: $white-color;
+      cursor: pointer;
+      margin: 24px 0;
+    }
+  }
 }

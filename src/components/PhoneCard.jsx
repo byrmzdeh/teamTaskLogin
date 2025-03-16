@@ -2,6 +2,8 @@ import React from 'react';
 import phone from "../assets/image/Subtract.png";
 import { Link } from 'react-router-dom';
 import { FaArrowRight } from "react-icons/fa";
+import { TbBrandGithubFilled } from "react-icons/tb";
+import phone_rectangle from "../assets/image/Rectangle 15.png"
 
 
 const PhoneCard = () => {
@@ -9,7 +11,8 @@ const PhoneCard = () => {
 
     return (
         <div className='phoneCard-wrapper d-flex'>
-            <div className='phone-image-wrapper'>
+            <img src={phone_rectangle} alt="phone_rectangle" className='phone-rectangle' />
+           <div className='phone-image-wrapper'>
                 <img src={phone} alt="phone" />
                 <div className="phone-info f-column">
                     <div className="user f-column">
@@ -29,8 +32,8 @@ const PhoneCard = () => {
                         <ul className='f-column'>
                             <li><Link>
                                 <div className='link-name-and-icon'>
-                                    <span className='link-icon'></span>
-                                    <span className='link-name'></span>
+                                    <span className='link-icon'><TbBrandGithubFilled /></span>
+                                    <span className='link-name'>GitHub</span>
                                 </div>
                                 <div className="arrow">
                                     <FaArrowRight />

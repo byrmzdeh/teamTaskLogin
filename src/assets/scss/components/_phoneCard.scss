@@ -3,10 +3,18 @@
   height: 834px;
   background-color: $white-color;
   border-radius: 12px;
+  
+  @media(max-width: 1024px){
+          display: none;      
+  }
+  .phone-rectangle{
+    position: relative;
+  }
   .phone-image-wrapper {
     position: relative;
     width: 285px;
     height: 611px;
+    position: absolute;
     img {
       width: 100%;
       height: 100%;
@@ -79,6 +87,37 @@
             height: 44px;
             cursor: pointer;
             flex-shrink: 0;
+            background-color: black;
+            a{
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              height: 100%;
+              padding: 16px;
+              .link-name-and-icon{
+                display: flex;
+                gap: 8px;
+
+                .link-icon{
+                  width: 16px;
+                  height: 16px;
+                  color: $white-color;
+                }
+                .link-name{
+                  font-weight: 400;
+                  font-size: 12px;
+                  line-height: 150%;
+                  letter-spacing: 1px;
+                  color: $white-color;
+                  width: 157px;
+                }
+              }
+              .arrow{
+                color: $white-color;
+                width: 16px;
+                height: 16px;
+              }
+            }
           }
         }
       }
