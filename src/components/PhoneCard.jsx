@@ -18,19 +18,23 @@ const PhoneCard = () => {
                     <div className="user f-column">
                         <div className="profile-photo">
 
-                            {/* <img 
+                            <img 
                                 src=""
                                 alt="profile-photo"
-                            /> */}
+                            />
                         </div>
                         <div className="user-info f-column">
-                            <div className='profile-name'></div>
+                            <div className='profile-name'>
+                                <span className='userName'></span>
+                                <span className='userSurnamenpm'></span>
+                            </div>
                             <div className='profile-email'></div>
                         </div>
                     </div>
                     <div className="profile-links d-flex">
                         <ul className='f-column'>
-                            <li><Link>
+                            <li>
+                                <Link>
                                 <div className='link-name-and-icon'>
                                     <span className='link-icon'><TbBrandGithubFilled /></span>
                                     <span className='link-name'>GitHub</span>
@@ -40,10 +44,6 @@ const PhoneCard = () => {
                                 </div>
                             </Link>
                             </li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
                             <li></li>
                             <li></li>
                             <li></li>
