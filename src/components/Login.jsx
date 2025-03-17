@@ -30,7 +30,7 @@ const Login = () => {
                 {({ errors, touched, isSubmitting, isValid, dirty }) => (
                     <Form>
                         <div className="text">
-                            <h1>Login</h1>
+                            <h1>Login </h1>
                             <p>Add your details below to get back into the app</p>
                         </div>
 
@@ -65,11 +65,11 @@ const Login = () => {
                         </label>
 
                         <button type="submit" disabled={isSubmitting || !isValid || !dirty}>
-                            {isSubmitting ? "Submitting..." : "Login"}
+                            {isSubmitting ? "Submitting...gi" : "Login"}
                         </button>
 
                         <div className="create">
-                            <span>Don’t have an account? <Link to={'/account'}>Create account</Link></span>
+                            <span>Don’t have an account ? <Link to={'/account'}>Create account</Link></span>
 
                         </div>
                     </Form>

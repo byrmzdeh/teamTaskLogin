@@ -89,7 +89,7 @@ const Account = () => {
                         </button>
 
                         <div className="create">
-                            <span>Already have an account? <Link to={'/'}>Login</Link></span>
+                            <span>Already have an account ? <Link to={'/'}>Login</Link></span>
 
                         </div>
                     </Form>
