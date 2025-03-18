@@ -1,8 +1,15 @@
 
+import { useState } from 'react';
 import MyCustomSelect from './MyCustomSelect';
 import { FaLink } from "react-icons/fa6";
 
 const CustomizeLinks = () => {
+  const [userLink, setUserLink] = useState("https://www.github.com/johnappleseed");
+
+  const handleRedirect = () => {
+    let finalLink = userLink.startsWith("http") ? userLink : "https://" + userLink;
+    window.open(finalLink, "_blank");
+  };
   return (
     <div className='customize-links-wrappers'>
 
@@ -29,23 +36,82 @@ const CustomizeLinks = () => {
                 <li className='link-item'>
                   <div className='linkNumber-and-remove'>
                     <div className='link-name'>
-                      <div>
+                      <div className='double-line'>
                         <span></span>
                         <span></span>
                       </div>
-                      <p>Link #1</p>
+                      <p className='link-number'>Link #1</p>
                     </div>
                     <p className="remove">
                       remove
                     </p>
                   </div>
                   <div className='dropdown'>
-                    <p>Platform</p>
+                    <p className='platform'>Platform</p>
                     <MyCustomSelect />
                   </div>
-                  <div className="link-button">
-                    <p>Link</p>
-                    <button className='link-button'><FaLink />e.g. https://www.github.com/johnappleseed</button>
+                  <div className="link">
+                    <p className='link-title'>Link</p>
+                    <button className='link-button' onClick={handleRedirect}><FaLink className='link-icon' /> <input
+                      type="text"
+                      value={userLink}
+                      onChange={(e) => setUserLink(e.target.value)}
+                      className="link-input"
+                    /></button>
+                  </div>
+                </li>
+                <li className='link-item'>
+                  <div className='linkNumber-and-remove'>
+                    <div className='link-name'>
+                      <div className='double-line'>
+                        <span></span>
+                        <span></span>
+                      </div>
+                      <p className='link-number'>Link #1</p>
+                    </div>
+                    <p className="remove">
+                      remove
+                    </p>
+                  </div>
+                  <div className='dropdown'>
+                    <p className='platform'>Platform</p>
+                    <MyCustomSelect />
+                  </div>
+                  <div className="link">
+                    <p className='link-title'>Link</p>
+                    <button className='link-button' onClick={handleRedirect}><FaLink className='link-icon' /> <input
+                      type="text"
+                      value={userLink}
+                      onChange={(e) => setUserLink(e.target.value)}
+                      className="link-input"
+                    /></button>
+                  </div>
+                </li>
+                <li className='link-item'>
+                  <div className='linkNumber-and-remove'>
+                    <div className='link-name'>
+                      <div className='double-line'>
+                        <span></span>
+                        <span></span>
+                      </div>
+                      <p className='link-number'>Link #1</p>
+                    </div>
+                    <p className="remove">
+                      remove
+                    </p>
+                  </div>
+                  <div className='dropdown'>
+                    <p className='platform'>Platform</p>
+                    <MyCustomSelect />
+                  </div>
+                  <div className="link">
+                    <p className='link-title'>Link</p>
+                    <button className='link-button' onClick={handleRedirect}><FaLink className='link-icon' /> <input
+                      type="text"
+                      value={userLink}
+                      onChange={(e) => setUserLink(e.target.value)}
+                      className="link-input"
+                    /></button>
                   </div>
                 </li>
               </ul>
