@@ -1,5 +1,6 @@
 
 import MyCustomSelect from './MyCustomSelect';
+import { FaLink } from "react-icons/fa6";
 
 const CustomizeLinks = () => {
   return (
@@ -12,10 +13,10 @@ const CustomizeLinks = () => {
             <p>Add/edit/remove links below and then share all your profiles with the world!</p>
           </div>
           <div className="customize-links-body">
-            <button>+ Add new link</button>
-           
-          <div className="links">
-          {/* <div className="start-helper-area">
+            <button className='add-link-btn'>+ Add new link</button>
+
+            <div className="links">
+              {/* <div className="start-helper-area">
               <div className='start-helper f-column'>
                 <img src={frame} alt="links" />
                 <div className="helper-text f-column">
@@ -24,12 +25,31 @@ const CustomizeLinks = () => {
                 </div>
               </div>
             </div> */}
-            <ul className='links-area-list'>
-              <li className='link-item'>
-                <MyCustomSelect/>
-              </li>
-            </ul>
-          </div>
+              <ul className='links-area-list'>
+                <li className='link-item'>
+                  <div className='linkNumber-and-remove'>
+                    <div className='link-name'>
+                      <div>
+                        <span></span>
+                        <span></span>
+                      </div>
+                      <p>Link #1</p>
+                    </div>
+                    <p className="remove">
+                      remove
+                    </p>
+                  </div>
+                  <div className='dropdown'>
+                    <p>Platform</p>
+                    <MyCustomSelect />
+                  </div>
+                  <div className="link-button">
+                    <p>Link</p>
+                    <button className='link-button'><FaLink />e.g. https://www.github.com/johnappleseed</button>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
