@@ -65,7 +65,7 @@ const Login = () => {
                         </label>
 
                         <button type="submit" disabled={isSubmitting || !isValid || !dirty}>
-                            {isSubmitting ? "Submitting...gi" : "Login"}
+                            {isSubmitting ? "Submitting..." : "Login"}
                         </button>
 
                         <div className="create">
