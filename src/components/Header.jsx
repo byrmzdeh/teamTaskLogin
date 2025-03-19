@@ -7,8 +7,8 @@ const Header = () => {
 
 
   return (
-    <header >
-      <div className='container header-wrapper'>
+    <header className='container' >
+      <div className=' header-wrapper'>
         <Link to={'/'} className="devlinks">
           <img src="/src/assets/image/dev.png" alt="err" />
           <p>devlinks</p>
@@ -20,7 +20,9 @@ const Header = () => {
           </ul>
 
         </nav>
-        <button className="preview-btn"><Link to={'/preview'}>Preview</Link></button>
+        <Link to={'/preview'}>
+          <button className='preview-btn'>Preview</button>
+        </Link>
       </div>
 
       <div className="res-container res-header">

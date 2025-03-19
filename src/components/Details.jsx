@@ -6,41 +6,27 @@ import PhoneCard from './PhoneCard';
 const validationSchema = Yup.object({
     email: Yup.string().email("Invalid email address").required("Can’t be empty"),
     name: Yup.string().required("Can’t be empty"),
-    surname: Yup.string().required("Can’t be empty")
+    surname: Yup.string().required("Can’t be empty"),
+    image: Yup.mixed().required("Can’t be empty")
 });
 
 const Details = () => {
-    const [phoneData, setPhoneData] = useState({ name: "", surname: "", email: "" });
-    const [image, setImage] = useState(null);
-
-    const handleImageChange = (e) => {
-        const file = e.target.files[0]; 
-        if (file) {
-            const reader = new FileReader();
-            reader.onloadend = () => {
-                setImage(reader.result); 
-            };
-            reader.readAsDataURL(file); 
-        }
-    };
-
+    const [phoneData, setPhoneData] = useState({ name: "", surname: "", email: "", image: null });
 
     return (
         <div className='customize-details-wrappers'>
             <div className="customize-container">
                 <div className="customize">
                     <Formik
-                        initialValues={{ email: "", name: "", surname: "" }}
+                        initialValues={{ email: "", name: "", surname: "", image: null }}
                         validationSchema={validationSchema}
                         onSubmit={(values, { setSubmitting }) => {
-                            console.log("Form submitted:", values); 
-                            setPhoneData(values); 
-                            setTimeout(() => {
-                                setSubmitting(false);
-                            }, 500);
+                            console.log("Form submitted:", values);
+                            setPhoneData(values); // Form dəyərlərini saxlayırıq
+                            setSubmitting(false);
                         }}
                     >
-                        {({ errors, touched, isSubmitting }) => (
+                        {({ errors, touched, isSubmitting, setFieldValue, values }) => (
                             <Form className="customize">
                                 <div className="customize-head">
                                     <h2>Profile Details</h2>
@@ -51,22 +37,29 @@ const Details = () => {
                                     <p>Profile picture</p>
                                     <div className="image-upload">
                                         <div className="image" onClick={() => document.getElementById('file-input').click()}>
-                                            {image ? (
-                                                <img src={image} alt="err"/> 
+                                            {values.image ? (
+                                                <img src={URL.createObjectURL(values.image)} alt="Profile" />
                                             ) : (
                                                 <>
-                                                    <i className="fa-solid fa-image"></i> 
-                                                    <p>+ Şəkil Yüklə</p> 
+                                                    <i className="fa-solid fa-image"></i>
+                                                    <p>+ Şəkil Yüklə</p>
                                                 </>
                                             )}
                                         </div>
                                         <input
+                                            id="file-input"
                                             type="file"
-                                            id="file-input" 
-                                            accept="image/*" 
-                                            style={{ display: 'none' }} 
-                                            onChange={handleImageChange} required
+                                            name="image"
+                                            accept="image/png, image/jpeg"
+                                            style={{ display: "none" }}
+                                            onChange={(event) => {
+                                                const file = event.currentTarget.files[0];
+                                                if (file) {
+                                                    setFieldValue("image", file);
+                                                }
+                                            }}
                                         />
+                                        <ErrorMessage name="image" component="div" className="error" />
                                     </div>
                                     <span>Image must be below 1024x1024px. Use PNG or JPG format.</span>
                                 </div>
@@ -116,22 +109,19 @@ const Details = () => {
                                         </label>
                                     </div>
 
-                                        <button className='savee-btn' type='submit' >Save</button>
+                                    <button className='savee-btn' type='submit' disabled={isSubmitting}>Save</button>
                                 </div>
                             </Form>
                         )}
                     </Formik>
 
-
-
-                    {/* {phoneData && (
+                    {phoneData.name && phoneData.surname && phoneData.email && (
                         <PhoneCard name={phoneData.name} surname={phoneData.surname} email={phoneData.email} />
-                    )} */}
-
+                    )}
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Details;

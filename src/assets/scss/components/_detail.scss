@@ -1,5 +1,5 @@
 .customize-details-wrappers {
-    width: 808px;
+    width: 65%;
     background-color: $white-color;
     border-radius: 12px;
     display: flex;
@@ -254,6 +254,7 @@
 
 @media (min-width: 324px) and (max-width: 768px) {
     .customize-details-wrappers{
+        width: 100%;
         .customize-container{
             .customize{
                 padding: 16px;
