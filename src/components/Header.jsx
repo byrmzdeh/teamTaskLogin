@@ -1,16 +1,11 @@
 import React from 'react';
-import ph_link from "../assets/image/Vector_1.png"
-import profile_details from "../assets/image/Vector.png"
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 
 
 const Header = () => {
-  const navigate = useNavigate();
 
-  const handlePreviewClick = () => {
-    navigate('/links');
-  };
+
   return (
     <header >
       <div className='container header-wrapper'>
@@ -25,7 +20,7 @@ const Header = () => {
           </ul>
 
         </nav>
-        <button className="preview-btn" onClick={handlePreviewClick}>Preview</button>
+        <button className="preview-btn"><Link to={'/preview'}>Preview</Link></button>
       </div>
 
       <div className="res-container res-header">
@@ -38,7 +33,7 @@ const Header = () => {
           <li><NavLink to={'/profile'}><i className="fa-regular fa-circle-user"></i></NavLink></li>
         </ul>
 
-        <Link to={'/'} className='eye'>
+        <Link to={'/preview'} className='eye'>
           <i class="fa-solid fa-eye"></i>
         </Link>
 

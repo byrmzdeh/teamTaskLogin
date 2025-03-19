@@ -1,57 +1,81 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { Link } from "react-router-dom";
+import PhoneCard from './PhoneCard';
 
 const validationSchema = Yup.object({
     email: Yup.string().email("Invalid email address").required("Can’t be empty"),
     name: Yup.string().required("Can’t be empty"),
     surname: Yup.string().required("Can’t be empty")
-
 });
 
 const Details = () => {
+    const [phoneData, setPhoneData] = useState({ name: "", surname: "", email: "" });
+    const [image, setImage] = useState(null);
+
+    const handleImageChange = (e) => {
+        const file = e.target.files[0]; 
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setImage(reader.result); 
+            };
+            reader.readAsDataURL(file); 
+        }
+    };
+
+
     return (
         <div className='customize-details-wrappers'>
-
             <div className="customize-container">
                 <div className="customize">
-
                     <Formik
                         initialValues={{ email: "", name: "", surname: "" }}
                         validationSchema={validationSchema}
                         onSubmit={(values, { setSubmitting }) => {
-                            console.log(values);
+                            console.log("Form submitted:", values); 
+                            setPhoneData(values); 
                             setTimeout(() => {
                                 setSubmitting(false);
-                                navigate("/");
                             }, 500);
                         }}
                     >
-                        {({ errors, touched, isSubmitting, isValid, dirty }) => (
-
-                            <div className="customize">
-                                <div className="customize-head ">
+                        {({ errors, touched, isSubmitting }) => (
+                            <Form className="customize">
+                                <div className="customize-head">
                                     <h2>Profile Details</h2>
                                     <p>Add your details to create a personal touch to your profile.</p>
                                 </div>
 
-                                <div className="profile-img ">
+                                <div className="profile-img">
                                     <p>Profile picture</p>
-                                    <div className="image">
-                                        <i className="fa-solid fa-image"></i>
-                                        <p>+ Upload Image</p>
+                                    <div className="image-upload">
+                                        <div className="image" onClick={() => document.getElementById('file-input').click()}>
+                                            {image ? (
+                                                <img src={image} alt="err"/> 
+                                            ) : (
+                                                <>
+                                                    <i className="fa-solid fa-image"></i> 
+                                                    <p>+ Şəkil Yüklə</p> 
+                                                </>
+                                            )}
+                                        </div>
+                                        <input
+                                            type="file"
+                                            id="file-input" 
+                                            accept="image/*" 
+                                            style={{ display: 'none' }} 
+                                            onChange={handleImageChange} required
+                                        />
                                     </div>
                                     <span>Image must be below 1024x1024px. Use PNG or JPG format.</span>
                                 </div>
 
-                                <Form>
-
-
-                                    <div className="form">
+                                <div className='form'>
+                                    <div className="inputs">
                                         <label htmlFor="name">
                                             <span className={errors.name && touched.name ? "labelName-err" : "labelName"}>First name*</span>
-                                            <div className={errors.name && touched.name ? "inputDiv-err" : "inputDiv"} >
+                                            <div className={errors.name && touched.name ? "inputDiv-err" : "inputDiv"}>
                                                 <Field
                                                     id="name"
                                                     name="name"
@@ -63,10 +87,9 @@ const Details = () => {
                                             </div>
                                         </label>
 
-
                                         <label htmlFor="surname">
                                             <span className={errors.surname && touched.surname ? "labelName-err" : "labelName"}>Last name*</span>
-                                            <div className={errors.surname && touched.surname ? "inputDiv-err" : "inputDiv"} >
+                                            <div className={errors.surname && touched.surname ? "inputDiv-err" : "inputDiv"}>
                                                 <Field
                                                     id="surname"
                                                     name="surname"
@@ -78,10 +101,9 @@ const Details = () => {
                                             </div>
                                         </label>
 
-
                                         <label htmlFor="email">
                                             <span className={errors.email && touched.email ? "labelName-err" : "labelName"}>Email</span>
-                                            <div className={errors.email && touched.email ? "inputDiv-err" : "inputDiv"} >
+                                            <div className={errors.email && touched.email ? "inputDiv-err" : "inputDiv"}>
                                                 <Field
                                                     id="email"
                                                     name="email"
@@ -94,28 +116,22 @@ const Details = () => {
                                         </label>
                                     </div>
 
-                                    <div className="save">
-                                        <button className='save-btn'>Save</button>
-                                    </div>
-
-
-
-                                </Form>
-
-
-                            </div>
-
-
+                                        <button className='savee-btn' type='submit' >Save</button>
+                                </div>
+                            </Form>
                         )}
                     </Formik>
 
 
+
+                    {/* {phoneData && (
+                        <PhoneCard name={phoneData.name} surname={phoneData.surname} email={phoneData.email} />
+                    )} */}
+
                 </div>
             </div>
-
-
         </div>
     )
 }
 
-export default Details
+export default Details;

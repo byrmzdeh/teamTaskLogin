@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { use } from 'react';
 import phone from "../assets/image/Subtract.png";
 import { Link } from 'react-router-dom';
 import { FaArrowRight } from "react-icons/fa";
@@ -6,8 +6,8 @@ import { TbBrandGithubFilled } from "react-icons/tb";
 import phone_rectangle from "../assets/image/Rectangle 15.png"
 
 
-const PhoneCard = () => {
-
+const PhoneCard = ({ name, surname, email }) => {
+    console.log("PhoneCard props:", { name, surname, email });
 
     return (
         <div className='phoneCard-wrapper d-flex'>
@@ -24,11 +24,11 @@ const PhoneCard = () => {
                             />
                         </div>
                         <div className="user-info f-column">
-                            <div className='profile-name'>
-                                <span className='userName'></span>
-                                <span className='userSurnamenpm'></span>
+                            <div>
+                                <span >{name}</span>
+                                <span>{surname}</span>
                             </div>
-                            <div className='profile-email'></div>
+                            <div className='profile-email'>{email}</div>
                         </div>
                     </div>
                     <div className="profile-links d-flex">

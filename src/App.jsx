@@ -5,17 +5,20 @@ import Links from './pages/Links'
 import './assets/scss/style.scss'
 import Account from "./components/Account";
 import Profile from "./pages/Profile";
-import Header from "./components/Header";
+import Layout from "./components/Layout";
+import Preview from "./pages/Preview";
 
 const App = () => {
   return (
     <BrowserRouter>
-      <Header />
       <Routes>
         <Route path="/" element={<Login />}></Route>
         <Route path="/account" element={<Account />}></Route>
-        <Route path="/links" element={<Links />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/preview" element={<Preview />}></Route>
+        <Route element={<Layout />}>
+          <Route path="/links" element={<Links />} />
+          <Route path="/profile" element={<Profile />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   )
